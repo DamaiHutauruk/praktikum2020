@@ -1,0 +1,47 @@
+---
+title: "Tugas Modul 3"
+author: "Damai Sumurung H"
+date: "9/29/2021"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. pernyataan yang benar adalah yang c.
+```{r murders}
+library(dslabs)
+data(murders)
+str(murders)
+```
+## 2. 
+```{r kolom}
+names(murders)
+```
+
+## 3.
+```{r objek}
+a = murders$abb
+class(a)
+```
+
+## 4.
+```{r logic}
+b = murders[[2]]
+b == a
+```
+
+## 5. 
+```{r length}
+length(levels(murders$region))
+```
+
+## 6.
+```{r table}
+table(murders$region)
+```
+
+
