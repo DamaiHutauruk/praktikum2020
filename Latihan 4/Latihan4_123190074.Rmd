@@ -1,0 +1,95 @@
+---
+title: "Latihan4_123190074"
+author: "Damai Sumurung H"
+date: "10/6/2021"
+output: word_document
+---
+
+```{r setup}
+library(dslabs)
+data("murders")
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## 1
+
+```{r 1}
+pop = murders$population
+sort(pop)
+min(pop)
+```
+
+## 2
+
+```{r 2}
+index<-order(murders$population)
+min(index[murders$population])
+
+```
+
+
+## 3
+
+```{r 3}
+which.min(murders$population)
+
+```
+
+
+## 4
+
+```{r 4}
+i_min <- which.min(murders$population)
+murders$state[i_min]
+```
+
+
+## 5
+
+```{r 5}
+ranks <-rank(murders$population)
+rank <- ranks
+city <- murders$state
+my_df <- data.frame(name = city, ranks = ranks)
+
+```
+
+
+## 6
+
+```{r 6}
+ranks <-order(rank(murders$population))
+murders$state[ranks]
+rank <- ranks
+city <- murders$state
+my_df <- data.frame(name = city, rank = ranks)
+```
+
+
+## 7
+
+```{r 7}
+population_in_millions <- murders$population/log(10)
+total_gun_murders <- murders$total
+plot(population_in_millions, total_gun_murders)
+```
+
+
+## 8
+
+```{r 8}
+x <- with(murders, population * log(10))
+hist(x)
+```
+
+
+## 9
+
+```{r 9}
+murders$rate <- with(murders, population * log(10))
+boxplot(rate~region, data = murders)
+```
