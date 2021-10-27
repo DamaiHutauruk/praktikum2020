@@ -1,0 +1,74 @@
+---
+title: "Latihan5_123190074"
+author: "Damai Sumurung H"
+date: "10/27/2021"
+output: word_document
+---
+```{r 0}
+library(dslabs)
+data("murders")
+```
+
+## R Markdown
+## 1
+
+```{r 1}
+new_names <-nchar(murders$state)
+ind <- which.max(new_names)
+if(new_names[ind] > 8){
+print(murders$abb[ind])
+} else{
+print("Tidak ada")
+}
+```
+
+## 2
+```{r 2}
+sum_n <- function(n){
+  x <- 1:n
+  sum(x)
+}
+m <- 5000
+s_n <- vector(length = m) # create an empty vector
+for(n in 1:m){
+s_n[n] <- sum_n(n)
+}
+s_n
+
+```
+
+## 3
+```{r 3}
+x <- 1:10
+y <- 1:10
+compute_s_n <- sum(x*y)
+compute_s_n
+```
+
+##4
+```{r 4}
+compute_s_n <- function(n){
+  x <- 1:n
+  sum(x)
+}
+m <- 25
+s_n <- vector("numeric", 25) # create an empty vector
+for(n in 1:m){
+s_n[n] <- compute_s_n(n)
+}
+s_n
+```
+
+##5
+```{r 5}
+compute_s_n <- function(n){
+  x <- 1:n
+  sum(x)
+}
+m <- 25
+s_n <- vector("numeric", 25) # create an empty vector
+for(n in 1:m){
+s_n[n] <- sapply(n, compute_s_n)
+}
+s_n
+```
