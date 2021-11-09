@@ -1,0 +1,48 @@
+---
+title: "Tugas Modul 7"
+author: "Damai Sumurung H/123190074"
+date: "11/9/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1
+
+```{r}
+library(dslabs)
+library(tidyverse)
+data("murders")
+murders_tibble = as_tibble("murders")
+```
+
+## 2
+
+```{r}
+murders %>% group_by(region) %>% class()
+```
+
+## 3
+
+```{r}
+murders %>% mutate(rate = log(population)) %>%
+summarize(mean = mean(rate)) %>% 
+summarise(exp = exp(mean)) %>%
+pull(exp)
+```
+
+## 4
+
+```{r}
+library(purrr)
+s_n <- function(n){
+x <- 1:n
+tibble(sum = sum(x))
+}
+n <- 1:100
+s_n_2 = s_n
+tes <- map_df(n, s_n)
+tes2 <- map_df(n, s_n_2)
+```
